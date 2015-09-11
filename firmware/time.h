@@ -128,10 +128,8 @@
 /* Disable timer#2 overflow interrupt. */
 #define Timer2DisableOVInterrupt() (TIMSK2 &= ~(1 << TOIE2))
 /* Define timer#2 PWM pin mode. */
-#define Timer2ConnectOC2A(mode) (TCCR2A = (TCCR2A & ~(3<<COM2A0)) \
-                                           | (mode<<COM2B0))
-#define Timer2ConnectOC2B(mode) (TCCR2A = (TCCR2A & ~(3<<COM2B0)) \
-                                           | (mode<<COM2B0))
+#define Timer2ConnectOC2A(md) (TCCR2A = (TCCR2A & ~(3<<COM2A0)) | (md<<COM2B0))
+#define Timer2ConnectOC2B(md) (TCCR2A = (TCCR2A & ~(3<<COM2B0)) | (md<<COM2B0))
 /* Initial timer#2 with Fast PWM mode. */
 #define Timer2Init() ({ \
 	/* Set timer#2 A fast PWM mode.*/ \
